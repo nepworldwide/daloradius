@@ -68,7 +68,7 @@ RUN chown -R www-data:www-data /var/www/daloradius
 RUN rm -rf /var/www/html
 #
 # Create daloRADIUS Log file
-RUN touch /tmp/daloradius.log && chown -R www-data:www-data /tmp/daloradius.log
+#RUN touch /tmp/daloradius.log && chown -R www-data:www-data /tmp/daloradius.log #Comment this to store log at persistent volume instead
 RUN mkdir -p /var/log/apache2/daloradius && chown -R www-data:www-data /var/log/apache2/daloradius
 RUN echo "Mutex posixsem" >> /etc/apache2/apache2.conf
 RUN echo "ServerName 127.0.0.1" >> /etc/apache2/apache2.conf

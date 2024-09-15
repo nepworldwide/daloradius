@@ -18,7 +18,7 @@ function init_daloradius {
     sed -i "s/\$configValues\['FREERADIUS_VERSION'\] = .*;/\$configValues\['FREERADIUS_VERSION'\] = '3';/" $DALORADIUS_CONF_PATH
     [ -n "$PASSWORD_MIN_LENGTH" ] && sed -i "s/\$configValues\['CONFIG_DB_PASSWORD_MIN_LENGTH'\] = .*;/\$configValues\['CONFIG_DB_PASSWORD_MIN_LENGTH'\] = '$PASSWORD_MIN_LENGTH';/" $DALORADIUS_CONF_PATH
     [ -n "$PASSWORD_MAX_LENGTH" ] && sed -i "s/\$configValues\['CONFIG_DB_PASSWORD_MAX_LENGTH'\] = .*;/\$configValues\['CONFIG_DB_PASSWORD_MAX_LENGTH'\] = '$PASSWORD_MAX_LENGTH';/" $DALORADIUS_CONF_PATH
-    [ -n "$FREERADIUS_LOG_PATH" ] && sed -i "s/\$configValues\['CONFIG_RADIUSLOG_FILE'\] = .*;/\$configValues\['CONFIG_RADIUSLOG_FILE'\] = '$FREERADIUS_LOG_PATH';/" $DALORADIUS_CONF_PATH # Fix to set freeradius logfile
+    [ -n "$FREERADIUS_LOG_PATH" ] && sed -i "s#\$configValues\['CONFIG_RADIUSLOG_FILE'\] = .*;#\$configValues\['CONFIG_RADIUSLOG_FILE'\] = '$FREERADIUS_LOG_PATH';#" $DALORADIUS_CONF_PATH # Fix to set freeradius logfile
 
     [ -n "$DEFAULT_FREERADIUS_SERVER" ] \
         && sed -i "s/\$configValues\['CONFIG_MAINT_TEST_USER_RADIUSSERVER'\] = .*;/\$configValues\['CONFIG_MAINT_TEST_USER_RADIUSSERVER'\] = '$DEFAULT_FREERADIUS_SERVER';/" $DALORADIUS_CONF_PATH \
